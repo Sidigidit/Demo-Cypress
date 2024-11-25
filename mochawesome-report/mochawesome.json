@@ -1,0 +1,167 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 1,
+    "pending": 0,
+    "failures": 2,
+    "start": "2024-12-02T04:48:02.586Z",
+    "end": "2024-12-02T04:50:10.381Z",
+    "duration": 127795,
+    "testsRegistered": 4,
+    "passPercent": 25,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 1,
+    "hasSkipped": true
+  },
+  "results": [
+    {
+      "uuid": "82b10939-07c4-4777-bcc4-cd36dc994df4",
+      "title": "",
+      "fullFile": "cypress\\e2e\\selectDeletePurchaseItem.spec.js",
+      "file": "cypress\\e2e\\selectDeletePurchaseItem.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "9f3558e8-442e-4b29-9ec3-66bb9766617c",
+          "title": "Select, Delete and Purchase Item",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should log in successfully with valid credentials",
+              "fullTitle": "Select, Delete and Purchase Item should log in successfully with valid credentials",
+              "timedOut": null,
+              "duration": 1487,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(_global.selectors.loginPage.usernameInput).type('standard_user');\ncy.get(_global.selectors.loginPage.passwordInput).type('secret_sauce');\ncy.get(_global.selectors.loginPage.loginButton).click();",
+              "err": {},
+              "uuid": "f7f50850-c038-4c5f-994f-2b3b961cc927",
+              "parentUUID": "9f3558e8-442e-4b29-9ec3-66bb9766617c",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should randomly select an item and add it to the cart",
+              "fullTitle": "Select, Delete and Purchase Item should randomly select an item and add it to the cart",
+              "timedOut": null,
+              "duration": 4462,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(_global.selectors.inventoryPage.itemList).its('length').then(length => {\n  const randomIndex = Math.floor(Math.random() * length);\n  (0, _selectItem.selectRandomItem)(randomIndex); // Use the utility function\n});",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.inventory_item`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.inventory_item`, but never found it.\n    at Context.eval (webpack://demo-cypress/./cypress/e2e/selectDeletePurchaseItem.spec.js:20:7)",
+                "diff": null
+              },
+              "uuid": "8bb2cd92-f2e5-430f-85b9-f1f3aa426b71",
+              "parentUUID": "9f3558e8-442e-4b29-9ec3-66bb9766617c",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should delete an item from the inventory",
+              "fullTitle": "Select, Delete and Purchase Item should delete an item from the inventory",
+              "timedOut": null,
+              "duration": 120277,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(_global.selectors.inventoryPage.itemList).its('length').then(length => {\n  const randomIndex = Math.floor(Math.random() * length);\n  (0, _deleteItem.deleteItem)(randomIndex); // Use the utility function\n});",
+              "err": {
+                "message": "CypressError: Timed out after waiting `120000ms` for your remote page to load.\n\nYour page did not fire its `load` event within `120000ms`.\n\nYou can try increasing the `pageLoadTimeout` value in `cypress.config.js` to wait longer.\n\nBrowsers will not fire the `load` event until all stylesheets and scripts are done downloading.\n\nWhen this `load` event occurs, Cypress will continue running commands.\n\nBecause this error occurred during a `before each` hook we are skipping the remaining tests in the current suite: `Select, Delete and Purchase...`",
+                "estack": "CypressError: Timed out after waiting `120000ms` for your remote page to load.\n\nYour page did not fire its `load` event within `120000ms`.\n\nYou can try increasing the `pageLoadTimeout` value in `cypress.config.js` to wait longer.\n\nBrowsers will not fire the `load` event until all stylesheets and scripts are done downloading.\n\nWhen this `load` event occurs, Cypress will continue running commands.\n\nBecause this error occurred during a `before each` hook we are skipping the remaining tests in the current suite: `Select, Delete and Purchase...`\n    at timedOutWaitingForPageLoad (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:130509:64)\n    at <unknown> (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:131494:16)\n    at tryCatcher (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:1830:23)\n    at <unknown> (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:4209:41)\n    at tryCatcher (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:1830:23)\n    at Promise._settlePromiseFromHandler (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:1542:31)\n    at Promise._settlePromise (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:1599:18)\n    at Promise._settlePromise0 (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:1644:10)\n    at Promise._settlePromises (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:1720:18)\n    at _drainQueueStep (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:2430:12)\n    at _drainQueue (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:2423:9)\n    at Async._drainQueues (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:2439:5)\n    at Async.drainQueues (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:2309:14)\nFrom Your Spec Code:\n    at Context.eval (webpack://demo-cypress/./cypress/e2e/selectDeletePurchaseItem.spec.js:10:7)",
+                "diff": null
+              },
+              "uuid": "bbce5dd0-02dc-4754-a51e-4a81df97607e",
+              "parentUUID": "9f3558e8-442e-4b29-9ec3-66bb9766617c",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should purchase an item",
+              "fullTitle": "Select, Delete and Purchase Item should purchase an item",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(_global.selectors.inventoryPage.itemList).first().click();\n(0, _purchaseItem.purchaseItem)(); // Use the utility function\ncy.url().should('include', '/checkout-complete');",
+              "err": {},
+              "uuid": "ec769483-8a44-44ed-9ffd-3c974aa2a03c",
+              "parentUUID": "9f3558e8-442e-4b29-9ec3-66bb9766617c",
+              "isHook": false,
+              "skipped": true
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "f7f50850-c038-4c5f-994f-2b3b961cc927"
+          ],
+          "failures": [
+            "8bb2cd92-f2e5-430f-85b9-f1f3aa426b71",
+            "bbce5dd0-02dc-4754-a51e-4a81df97607e"
+          ],
+          "pending": [],
+          "skipped": [
+            "ec769483-8a44-44ed-9ffd-3c974aa2a03c"
+          ],
+          "duration": 126226,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": null,
+      "version": "6.2.0"
+    }
+  }
+}

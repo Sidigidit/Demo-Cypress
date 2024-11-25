@@ -1,0 +1,124 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-11-25T06:50:00.228Z",
+    "end": "2024-11-25T06:50:07.086Z",
+    "duration": 6858,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "f6f6b932-c282-4e7f-8712-7c19bf9ce99c",
+      "title": "",
+      "fullFile": "cypress\\e2e\\login.spec.js",
+      "file": "cypress\\e2e\\login.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "66e29e4a-ce01-43ac-b774-9edfd0f1f973",
+          "title": "Login to Sauce Demo",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should login successfully with valid credentials",
+              "fullTitle": "Login to Sauce Demo should login successfully with valid credentials",
+              "timedOut": null,
+              "duration": 2354,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Isi form login dengan kredensial yang benar\ncy.get('[data-test=\"username\"]').type('standard_user');\ncy.get('[data-test=\"password\"]').type('secret_sauce');\ncy.get('[data-test=\"login-button\"]').click();\n// Verifikasi bahwa login berhasil dengan memeriksa adanya elemen yang hanya terlihat setelah login\ncy.url().should('include', '/inventory.html');\ncy.get('.title').should('contain', 'Products');",
+              "err": {},
+              "uuid": "934a4a7d-c423-4149-a0b1-8364fc914345",
+              "parentUUID": "66e29e4a-ce01-43ac-b774-9edfd0f1f973",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should show an error with invalid credentials",
+              "fullTitle": "Login to Sauce Demo should show an error with invalid credentials",
+              "timedOut": null,
+              "duration": 1832,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Coba login dengan kredensial yang salah\ncy.get('[data-test=\"username\"]').type('invalid_user');\ncy.get('[data-test=\"password\"]').type('wrong_password');\ncy.get('[data-test=\"login-button\"]').click();\n// Verifikasi bahwa error muncul\ncy.get('.error-message-container').should('be.visible');",
+              "err": {},
+              "uuid": "1c340f90-2505-4e77-aaf8-108121841c31",
+              "parentUUID": "66e29e4a-ce01-43ac-b774-9edfd0f1f973",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "934a4a7d-c423-4149-a0b1-8364fc914345",
+            "1c340f90-2505-4e77-aaf8-108121841c31"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 4186,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
